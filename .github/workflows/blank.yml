@@ -13,6 +13,7 @@ jobs:
         run: echo Hello, dev!
   
   stage:
+    needs: dev
     environment: stage
     runs-on: ubuntu-latest
 
@@ -21,6 +22,7 @@ jobs:
         run: echo Hello, dev!
 
   preprod:
+    needs: stage
     environment: preprod
     runs-on: ubuntu-latest
 
@@ -29,6 +31,7 @@ jobs:
         run: echo Hello, dev!
 
   prod:
+    needs: preprod
     environment: prod
     runs-on: ubuntu-latest
 
