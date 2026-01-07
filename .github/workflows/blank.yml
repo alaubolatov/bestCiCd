@@ -11,3 +11,27 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, dev!
+  
+  stage:
+    environment: stage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, dev!
+
+  preprod:
+    environment: preprod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, dev!
+
+  prod:
+    environment: prod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, dev!
