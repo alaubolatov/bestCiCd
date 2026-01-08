@@ -38,3 +38,8 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, prod!
+        
+      - name: Check labels and generate matrices
+        uses: alaubolatov/bestCiCd/.github/actions/check-labels/v1@main
+        with:
+          github_token: 'kuku'
