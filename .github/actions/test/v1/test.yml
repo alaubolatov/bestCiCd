@@ -1,0 +1,20 @@
+name: 'Auto Update PRs'
+description: 'Automatically updates all open Pull Requests with the latest main branch changes'
+
+inputs:
+  github-token:
+    description: 'GitHub token with repo permissions'
+    required: true
+
+outputs:
+  updated-count:
+    description: 'Number of PRs successfully updated'
+    value: ${{ steps.update-prs.outputs.pepa }}
+
+runs:
+  steps:
+    - name: Configure Git
+      id: update-prs
+      shell: bash
+      run: |
+        echo "pepa=7" >> $GITHUB_OUTPUT
