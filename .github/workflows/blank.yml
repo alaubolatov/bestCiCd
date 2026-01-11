@@ -14,6 +14,8 @@ jobs:
 
       - name: Deployment Promotion
         uses: ./.github/actions/deployment_promotion
+        with:
+          environment: "dev"
   
   stage:
     needs: dev
@@ -26,6 +28,8 @@ jobs:
 
       - name: Deployment Promotion
         uses: ./.github/actions/deployment_promotion
+        with:
+          environment: "stage"
 
   preprod:
     needs: stage
@@ -38,6 +42,8 @@ jobs:
 
       - name: Deployment Promotion
         uses: ./.github/actions/deployment_promotion
+        with:
+          environment: "preprod"
 
   prod:
     needs: preprod
@@ -50,3 +56,5 @@ jobs:
 
       - name: Deployment Promotion
         uses: ./.github/actions/deployment_promotion
+        with:
+          environment: "prod"
