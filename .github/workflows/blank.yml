@@ -38,13 +38,6 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, prod!
-
-  call-workflow-passing-data:
-    permissions:
-      contents: read
-      pull-requests: write
-    uses: alaubolatov/bestCiCd/.github/workflows/workflow-B.yml@main
-    with:
-      config-path: .github/labeler.yml
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Run custom action
+        uses: ./.github/actions/hello
