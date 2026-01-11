@@ -9,8 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
-        run: echo Hello, dev!
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deployment Promotion
+        uses: ./.github/actions/deployment_promotion
   
   stage:
     needs: dev
@@ -18,8 +21,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
-        run: echo Hello, stage!
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deployment Promotion
+        uses: ./.github/actions/deployment_promotion
 
   preprod:
     needs: stage
@@ -27,8 +33,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
-        run: echo Hello, preprod!
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deployment Promotion
+        uses: ./.github/actions/deployment_promotion
 
   prod:
     needs: preprod
@@ -36,11 +45,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
-        run: echo Hello, prod!
-
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run custom action
-        uses: ./.github/actions/hello
+      - name: Deployment Promotion
+        uses: ./.github/actions/deployment_promotion
