@@ -1,0 +1,14 @@
+name: "Clean Cache Action"
+description: "Cleans the cache for the specified environment"
+
+inputs:
+  environment:
+    description: "Name of the environment"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Say Hello
+      shell: bash
+      run: echo "Hello from clean cache action in the ${{ inputs.environment }} environment!"

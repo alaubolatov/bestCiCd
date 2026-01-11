@@ -1,0 +1,14 @@
+name: "ACR Import Action"
+description: "Imports an image into Azure Container Registry"
+
+inputs:
+  environment:
+    description: "Name of the environment"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Say Hello
+      shell: bash
+      run: echo "Hello from acr import in the ${{ inputs.environment }} environment!"

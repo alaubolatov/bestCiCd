@@ -1,0 +1,14 @@
+name: "Deployment Action"
+description: "Prints a hello message"
+
+inputs:
+  environment:
+    description: "Name of the environment"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Say Hello
+      shell: bash
+      run: echo "Hello from deployment action in the ${{ inputs.environment }} environment!"

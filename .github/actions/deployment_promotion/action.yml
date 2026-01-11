@@ -10,6 +10,22 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Say Hello
-      shell: bash
-      run: echo "Hello from my custom action in the ${{ inputs.environment }} environment!"
+    - name: ACR Import
+      uses: ./.github/actions/deployment_promotion/acr_import
+      with:
+        environment: ${{ inputs.environment }}
+
+    - name: Deployment
+      uses: ./.github/actions/deployment_promotion/deployment
+      with:
+        environment: ${{ inputs.environment }}
+
+    - name: Check Deployment
+      uses: ./.github/actions/deployment_promotion/check_deployment
+      with:
+        environment: ${{ inputs.environment }}
+
+    - name: Clean Cache
+      uses: ./.github/actions/deployment_promotion/clean_cache
+      with:
+        environment: ${{ inputs.environment }}
