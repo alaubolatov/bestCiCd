@@ -38,6 +38,9 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, prod!
-        
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run custom action
         uses: ./.github/actions/hello
