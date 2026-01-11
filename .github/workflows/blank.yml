@@ -38,8 +38,13 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, prod!
-        
-      - name: Check labels and generate matrices
-        uses: alaubolatov/bestCiCd/.github/actions/check-labels/v1@main
-        with:
-          github_token: 'kuku'
+
+  call-workflow-passing-data:
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: alaubolatov/bestCiCd/.github/workflows/workflow-B.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
